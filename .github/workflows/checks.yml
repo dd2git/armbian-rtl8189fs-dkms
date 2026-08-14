@@ -1,0 +1,23 @@
+name: Checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  shellcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run ShellCheck
+        run: shellcheck install.sh uninstall.sh scan-wifi.sh
+
+  metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate DKMS metadata
+        run: |
+          bash -n install.sh uninstall.sh scan-wifi.sh
+          grep -q 'PACKAGE_NAME="rtl8189fs"' dkms.conf
+          grep -q 'AUTOINSTALL="yes"' dkms.conf
