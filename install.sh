@@ -5,12 +5,14 @@ set -euo pipefail
 readonly PACKAGE_NAME="rtl8189fs"
 readonly PACKAGE_VERSION="5.7.9"
 readonly MODULE_NAME="8189fs"
-readonly SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+readonly SCRIPT_DIR
 readonly SOURCE_DIR="/usr/src/${PACKAGE_NAME}-${PACKAGE_VERSION}"
 readonly TOOLCHAIN_NAME="arm-gnu-toolchain-15.3.rel1-aarch64-aarch64-none-linux-gnu"
 readonly TOOLCHAIN_ROOT="/usr/local/toolchain/${TOOLCHAIN_NAME}"
 readonly TOOLCHAIN_URL="https://github.com/ophub/kernel/releases/download/dev/${TOOLCHAIN_NAME}.tar.xz"
-readonly RUNNING_KERNEL="$(uname -r)"
+RUNNING_KERNEL="$(uname -r)"
+readonly RUNNING_KERNEL
 
 if [[ ${EUID} -ne 0 ]]; then
     echo "Fehler: Bitte als root ausfuehren: sudo ./install.sh" >&2
