@@ -1,4 +1,4 @@
-# RTL8189FS-DKMS fuer Armbian/OPhub
+# RTL8189FS-DKMS für Armbian/OPhub
 
 Dieses Repository baut den internen Realtek-RTL8189FTV/RTL8189FS-SDIO-WLAN-Treiber automatisch mit DKMS. Anders als das [kernelgebundene Vorgängerprojekt](https://github.com/dd2git/armbian-rtl8189fs) enthält es kein vorkompiliertes Kernelmodul. DKMS baut den Treiber für den laufenden Kernel und nach Kernel-Updates erneut.
 
